@@ -49,17 +49,17 @@ function dragFunction (event) {
 
 
 // Strange, not sure why this isn't working
-footer.addEventListener("load", loadWelcome)
+window.addEventListener("load", loadWelcome)
 function loadWelcome (event) {
     console.log("Page is fully loaded")
 }
 
-footer.addEventListener("focus", focusFunction)
+window.addEventListener("focus", focusFunction)
 function focusFunction (event) {
     console.log("No Bubbles Here")
 }
 
-footer.addEventListener("blur", focusFunction2)
+window.addEventListener("blur", focusFunction2)
 function focusFunction2 (event) {
     console.log("Blur")
 }
@@ -83,10 +83,9 @@ function dblClickFunction (event) {
     console.log("Please come back later")
 }
 
-
-
-
-window.addEventListener("select", selectFunction)
+// Had to change HTML class to input, since select only works
+// on input or textarea elements
+destinationTxt.addEventListener("select", selectFunction)
 function selectFunction(event) {
     console.log("You won't find better prices anywhere")
 }
