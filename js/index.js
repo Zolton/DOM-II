@@ -10,7 +10,7 @@ const adventureImg = document.querySelector(".img-content img")
 const destinationImg = document.querySelector(".content-destination.img")
 const funImg = document.querySelector(".inverse-content img")
 const footer = document.querySelector(".footer p")
-const destinationTxt = document.querySelector(".content-destination p")
+const destinationTxt = document.querySelector("textarea")
 const btn = document.querySelector(".btn")
 
 // Changes Intro h2 as you mouse over and mouseleave
@@ -74,12 +74,8 @@ function resizeFunction (event) {
 // Starting to understand window command
 window.addEventListener("scroll", scrollFunction)
 function scrollFunction (event) {
-    footer.style.backgroundColor = "blue"
-}
-
-destinationTxt.addEventListener("select", selectFunction)
-function selectFunction(event) {
-    console.log("You won't find better prices anywhere")
+    console.log("<-- Number of Scrolls activated")
+    footer.style.backgroundColor = "red"
 }
 
 window.addEventListener("click", dblClickFunction)
@@ -88,3 +84,9 @@ function dblClickFunction (event) {
 }
 
 
+
+
+window.addEventListener("select", selectFunction)
+function selectFunction(event) {
+    console.log("You won't find better prices anywhere")
+}
