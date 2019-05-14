@@ -6,9 +6,12 @@ const welcome = document.querySelector(".intro h2")
 const body = document.querySelector("body")
 const firstParagraph = document.querySelector(".intro p")
 const header = document.querySelector(".main-navigation")
-// const adventureImg = document.querySelector("img/adventure.jpg")
-// const destinationImg = document.querySelector("img/destination/jpg")
-
+const adventureImg = document.querySelector(".img-content img")
+const destinationImg = document.querySelector(".content-destination.img")
+const funImg = document.querySelector(".inverse-content img")
+const footer = document.querySelector(".footer p")
+const destinationTxt = document.querySelector(".content-destination p")
+const btn = document.querySelector(".btn")
 
 // Changes Intro h2 as you mouse over and mouseleave
 funBusImg.addEventListener("mouseover", funBusFunctionMouseOver)
@@ -36,18 +39,52 @@ function changeColor (event) {
     header.style.backgroundColor = "lightgray"
 }
 
-// I do NOT recommend activating this one, the alert will never go away
-// body.addEventListener("drag", dragFunction)
-// function dragFunction (event) {
-//     funBusImg.src = "img/fun.jpg"
-// }
-// body.addEventListener("drop", dropFunction)
-// function dropFunction (event) {
-//     funBusImg.src = "fun-bus.jpg"
-// }
+// Switches images around when someone drags something
+body.addEventListener("drag", dragFunction)
+function dragFunction (event) {
+    funBusImg.src = "img/adventure.jpg";
+    adventureImg.src = "img/destination.jpg";
+    funImg.src = "img/fun-bus.jpg";
+}
 
 
-// body.addEventListener("load", loadWelcome)
-// function loadWelcome (event) {
-//     Alert("Hello!")
-// }
+// Strange, not sure why this isn't working
+footer.addEventListener("load", loadWelcome)
+function loadWelcome (event) {
+    console.log("Page is fully loaded")
+}
+
+footer.addEventListener("focus", focusFunction)
+function focusFunction (event) {
+    console.log("No Bubbles Here")
+}
+
+footer.addEventListener("blur", focusFunction2)
+function focusFunction2 (event) {
+    console.log("Blur")
+}
+
+//window.addEventListener("resize", resizeFunction)
+window.onresize = resizeFunction;
+function resizeFunction (event) {
+    console.log(window.innerHeight + " x " + window.innerWidth)
+}
+
+
+// Starting to understand window command
+window.addEventListener("scroll", scrollFunction)
+function scrollFunction (event) {
+    footer.style.backgroundColor = "blue"
+}
+
+destinationTxt.addEventListener("select", selectFunction)
+function selectFunction(event) {
+    console.log("You won't find better prices anywhere")
+}
+
+window.addEventListener("click", dblClickFunction)
+function dblClickFunction (event) {
+    console.log("Please come back later")
+}
+
+
