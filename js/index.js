@@ -11,7 +11,9 @@ const destinationImg = document.querySelector(".content-destination.img")
 const funImg = document.querySelector(".inverse-content img")
 const footer = document.querySelector(".footer p")
 const destinationTxt = document.querySelector("textarea")
-const btn = document.querySelector(".btn")
+const btn = document.querySelectorAll(".btn")
+const destinationH4 = document.querySelectorAll(".content-pick .destination")
+const h2 = document.querySelectorAll("h2")
 
 // Changes Intro h2 as you mouse over and mouseleave
 funBusImg.addEventListener("mouseover", funBusFunctionMouseOver)
@@ -78,6 +80,9 @@ function scrollFunction (event) {
     footer.style.backgroundColor = "red"
 }
 
+
+
+
 window.addEventListener("click", dblClickFunction)
 function dblClickFunction (event) {
     console.log("Please come back later")
@@ -89,3 +94,34 @@ destinationTxt.addEventListener("select", selectFunction)
 function selectFunction(event) {
     console.log("You won't find better prices anywhere")
 }
+
+//When enabled, prevents footer from turning red in background color
+//Also prevents counting scrolls on page
+
+// window.addEventListener("scroll", scrollFunction)
+// function scrollFunction (event) {
+//     event.preventDefault();
+    
+// }
+
+const div = document.querySelector(".content-destination")
+div.addEventListener("wheel", test)
+function test(event) {
+    div.style.backgroundColor = "red";
+}
+
+
+/* event propagation example from After hours.  I understand that the event
+propagation prevents the image variable, set at content-destination-> img
+from interfering with the parent content-destination.
+It requires 2 parts to work - a larger flexbox/item to work on, and a smaller
+one inside it, typical parent-child.  It acts like a scope or closure,
+preventing effects from leaking out
+*/
+const image = document.querySelector(".content-destination  img")
+image.addEventListener("wheel", ev)
+function ev (event) {
+    image.style.filter = "blur(3px)"
+    event.stopPropagation();
+}
+
